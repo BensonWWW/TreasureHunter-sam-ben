@@ -22,6 +22,11 @@ public class Hunter {
         gold = startingGold;
     }
 
+    //Returns amount of gold
+    public int getGold(){
+        return gold;
+    }
+
     //Accessors
     public String getHunterName() {
         return hunterName;
@@ -35,7 +40,7 @@ public class Hunter {
     public void changeGold(int modifier) {
         gold += modifier;
         if (gold < 0) {
-            gold = 0;
+            gold = -1;
         }
     }
 
