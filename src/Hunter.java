@@ -22,6 +22,11 @@ public class Hunter {
         gold = startingGold;
     }
 
+    //Returns amount of gold
+    public int getGold(){
+        return gold;
+    }
+
     //Accessors
     public String getHunterName() {
         return hunterName;
@@ -35,7 +40,7 @@ public class Hunter {
     public void changeGold(int modifier) {
         gold += modifier;
         if (gold < 0) {
-            gold = 0;
+            gold = -1;
         }
     }
 
@@ -130,7 +135,7 @@ public class Hunter {
 
         for (String item : kit) {
             if (item != null) {
-                printableKit += item + space;
+                printableKit += Colors.PURPLE + item + space + Colors.RESET;
             }
         }
         return printableKit;
@@ -140,7 +145,7 @@ public class Hunter {
      * @return A string representation of the hunter.
      */
     public String infoString() {
-        String str = hunterName + " has " + gold + " gold";
+        String str = hunterName + " has " + Colors.YELLOW + gold + Colors.RESET + " gold";
         if (!kitIsEmpty()) {
             str += " and " + getInventory();
         }
