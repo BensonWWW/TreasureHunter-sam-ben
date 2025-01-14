@@ -25,6 +25,10 @@ public class Town {
         return searched;
     }
 
+    public static ArrayList<String> getObtained(){
+        return obtained;
+    }
+
     /**
      * The Town Constructor takes in a shop and the surrounding terrain, but leaves the hunter as null until one arrives.
      *
@@ -162,7 +166,6 @@ public class Town {
         }else{
             System.out.println("You found a " + treasure[3]);
         }
-        System.out.println(obtained.toString());
         searched = true;
     }
 

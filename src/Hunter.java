@@ -141,6 +141,18 @@ public class Hunter {
         return printableKit;
     }
 
+    public String infoTreasure(){
+        String str = "Treasures found: ";
+        if(Town.getObtained().isEmpty()){
+            str += "none";
+        }else{
+            for(int i = 0; i < Town.getObtained().size(); i++){
+                str += Town.getObtained().get(i) + " ";
+            }
+        }
+        return str;
+    }
+
     /**
      * @return A string representation of the hunter.
      */

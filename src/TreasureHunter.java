@@ -113,6 +113,7 @@ public class TreasureHunter {
             }
             System.out.println("***");
             System.out.println(hunter.infoString());
+            System.out.println(hunter.infoTreasure());
             System.out.println(Colors.CYAN + currentTown.infoString() + Colors.RESET);
             System.out.println("(B)uy something at the shop.");
             System.out.println("(S)ell something at the shop.");
