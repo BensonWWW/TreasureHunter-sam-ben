@@ -107,6 +107,11 @@ public class TreasureHunter {
         String choice = "";
         while (!choice.equals("x")) {
             System.out.println();
+            if(Town.getObtained().size() == 3){
+                System.out.println(hunter.infoTreasure());
+                System.out.println("Congratulations, you have found all 3 treasures, you win!");
+                break;
+            }
             System.out.println(currentTown.getLatestNews());
             if(currentTown.getHunter().getGold() < 0){
                 break;
