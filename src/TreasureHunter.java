@@ -119,6 +119,7 @@ public class TreasureHunter {
             System.out.println("(E)xplore surrounding terrain.");
             System.out.println("(M)ove on to a different town.");
             System.out.println("(L)ook for trouble!");
+            System.out.println("(H)unt for treasure.");
             System.out.println("Give up the hunt and e(X)it.");
             System.out.println();
             System.out.print("What's your next move? ");
@@ -143,10 +144,16 @@ public class TreasureHunter {
                 enterTown();
             }
         } else if (choice.equals("l")) {
-            currentTown.lookForTrouble();
+            currentTown.huntForTreasure();
         } else if (choice.equals("x")) {
             System.out.println("Fare thee well, " + hunter.getHunterName() + "!");
-        } else {
+        } else if (choice.equals("h")){
+            if(currentTown.getSearched()){
+                System.out.println("You already searched that town! ");
+            }else{
+                currentTown.huntForTreasure();
+            }
+        }else {
             System.out.println("Yikes! That's an invalid option! Try again.");
         }
     }

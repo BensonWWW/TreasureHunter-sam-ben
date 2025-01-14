@@ -3,6 +3,7 @@
  * The Town is designed to manage all the things a Hunter can do in town.
  * This code has been adapted from Ivan Turner's original program -- thank you Mr. Turner!
  */
+import java.util.ArrayList;
 
 public class Town {
     // instance variables
@@ -11,10 +12,17 @@ public class Town {
     private Terrain terrain;
     private String printMessage;
     private boolean toughTown;
+    private String[] treasure = {"crown", "trophy", "gem", "dust"};
+    private static ArrayList<String> obtained = new ArrayList<>();
+    private boolean searched = false;
 
 
     public Hunter getHunter(){
         return hunter;
+    }
+
+    public boolean getSearched(){
+        return searched;
     }
 
     /**
@@ -126,6 +134,36 @@ public class Town {
 
     public String infoString() {
         return "This nice little town is surrounded by " + terrain.getTerrainName() + ".";
+    }
+
+    public void huntForTreasure(){
+        double num = Math.random();
+        if(num < 0.2){
+            System.out.println("You found a " + treasure[0]);
+            if(!obtained.contains(treasure[0])){
+                obtained.add(treasure[0]);
+            }else{
+                System.out.println("Already obtained " + treasure[0]);
+            }
+        }else if(num < 0.4){
+            System.out.println("You found a " + treasure[1]);
+            if(!obtained.contains(treasure[1])){
+                obtained.add(treasure[1]);
+            }else{
+                System.out.println("Already obtained " + treasure[1]);
+            }
+        }else if(num < 0.6){
+            System.out.println("You found a " + treasure[2]);
+            if(!obtained.contains(treasure[2])){
+                obtained.add(treasure[2]);
+            }else{
+                System.out.println("Already obtained " + treasure[2]);
+            }
+        }else{
+            System.out.println("You found a " + treasure[3]);
+        }
+        System.out.println(obtained.toString());
+        searched = true;
     }
 
     /**
