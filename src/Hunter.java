@@ -115,7 +115,7 @@ public class Hunter {
      */
     public boolean hasItemInKit(String item) {
         for (String tmpItem : kit) {
-            if (item.equals(tmpItem)) {
+            if (item.equalsIgnoreCase(tmpItem)) {
                 // early return
                 return true;
             }
