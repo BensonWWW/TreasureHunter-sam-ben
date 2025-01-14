@@ -108,6 +108,9 @@ public class TreasureHunter {
         while (!choice.equals("x")) {
             System.out.println();
             System.out.println(currentTown.getLatestNews());
+            if(currentTown.getHunter().getGold() < 0){
+                break;
+            }
             System.out.println("***");
             System.out.println(hunter.infoString());
             System.out.println(Colors.CYAN + currentTown.infoString() + Colors.RESET);

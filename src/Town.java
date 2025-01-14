@@ -12,12 +12,19 @@ public class Town {
     private String printMessage;
     private boolean toughTown;
 
+
+    public Hunter getHunter(){
+        return hunter;
+    }
+
     /**
      * The Town Constructor takes in a shop and the surrounding terrain, but leaves the hunter as null until one arrives.
      *
      * @param shop The town's shoppe.
      * @param toughness The surrounding terrain.
      */
+
+
     public Town(Shop shop, double toughness) {
         this.shop = shop;
         this.terrain = getNewTerrain();
