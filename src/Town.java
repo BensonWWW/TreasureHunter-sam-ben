@@ -181,32 +181,32 @@ public class Town {
             System.out.println("You found a " + treasure[0]);
             if(!obtained.contains(treasure[0])){
                 obtained.add(treasure[0]);
-                printMessage += "You hunted for treasure and found a " + treasure[0];
+                printMessage = "You hunted for treasure and found a " + treasure[0];
             }else {
                 System.out.println("Already obtained " + treasure[0]);
-                printMessage += "You hunted for treasure and found a " + treasure[0] + " but you already had a " + treasure[0];
+                printMessage = "You hunted for treasure and found a " + treasure[0] + " but you already had a " + treasure[0];
             }
         }else if(num < 0.4){
             System.out.println("You found a " + treasure[1]);
             if(!obtained.contains(treasure[1])){
                 obtained.add(treasure[1]);
-                printMessage += "You hunted for treasure and found a " + treasure[1];
+                printMessage = "You hunted for treasure and found a " + treasure[1];
             }else{
                 System.out.println("Already obtained " + treasure[1]);
-                printMessage += "You hunted for treasure and found a " + treasure[1] + " but you already had a " + treasure[1];
+                printMessage = "You hunted for treasure and found a " + treasure[1] + " but you already had a " + treasure[1];
             }
         }else if(num < 0.6){
             System.out.println("You found a " + treasure[2]);
             if(!obtained.contains(treasure[2])){
                 obtained.add(treasure[2]);
-                printMessage += "You hunted for treasure and found a " + treasure[2];
+                printMessage = "You hunted for treasure and found a " + treasure[2];
             } else{
                 System.out.println("Already obtained " + treasure[2]);
-                printMessage += "You hunted for treasure and found a " + treasure[2] + " but you already had a " + treasure[2];
+                printMessage = "You hunted for treasure and found a " + treasure[2] + " but you already had a " + treasure[2];
             }
         }else{
             System.out.println("You found a " + treasure[3]);
-            printMessage += "You hunted for treasure and found " + treasure[3];
+            printMessage = "You hunted for treasure and found " + treasure[3];
         }
         searched = true;
     }
