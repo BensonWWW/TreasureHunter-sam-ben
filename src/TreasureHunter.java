@@ -17,18 +17,26 @@ public class TreasureHunter {
     private Hunter hunter;
     private boolean hardMode;
     private boolean testMode;
+    private static boolean easyMode;
+    private boolean first;
 
     /**
      * Constructs the Treasure Hunter game.
      */
+
     public TreasureHunter() {
         // these will be initialized in the play method
         currentTown = null;
         hunter = null;
         hardMode = false;
         testMode = false;
+        easyMode = false;
+        first = true;
     }
 
+    public static boolean getEasyMode(){
+        return easyMode;
+    }
     /**
      * Starts the game; this is the only public method
      */
@@ -54,12 +62,10 @@ public class TreasureHunter {
         String option = SCANNER.nextLine().toLowerCase();
         if (option.equals("h")) {
             hardMode = true;
-        } else if (option.equals("n")){
-
         } else if (option.equals("test")) {
             testMode = true;
         } else if(option.equals("e")){
-
+            easyMode = true;
         }
     }
 
@@ -83,6 +89,14 @@ public class TreasureHunter {
             hunter.buyItem("Boots", 1);
             hunter.buyItem("Horse", 1);
             hunter.buyItem("Boat", 1);
+        } else if (easyMode && first){
+            hunter.setGold(40);
+            toughness = 0.2;
+            markdown = 1;
+            first = false;
+        }else if (easyMode){
+            toughness = 0.2;
+            markdown = 1;
         }
 
         // note that we don't need to access the Shop object

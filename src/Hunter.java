@@ -32,6 +32,10 @@ public class Hunter {
         return hunterName;
     }
 
+    public void setGold(int smth){
+        gold = smth;
+    }
+
     /**
      * Updates the amount of gold the hunter has.
      *
