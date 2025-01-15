@@ -64,7 +64,7 @@ public class TreasureHunter {
         // set hunter instance variable
         hunter = new Hunter(name, 20);
 
-        System.out.print("(E)asy, (N)ormal, or (H)ard mode?");
+        System.out.print("(E)asy, (N)ormal, or (H)ard mode? ");
         String option = SCANNER.nextLine().toLowerCase();
         if (option.equals("h")) {
             hardMode = true;

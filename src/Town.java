@@ -181,25 +181,32 @@ public class Town {
             System.out.println("You found a " + treasure[0]);
             if(!obtained.contains(treasure[0])){
                 obtained.add(treasure[0]);
-            }else{
+                printMessage += "You hunted for treasure and found a " + treasure[0];
+            }else {
                 System.out.println("Already obtained " + treasure[0]);
+                printMessage += "You hunted for treasure and found a " + treasure[0] + " but you already had a " + treasure[0];
             }
         }else if(num < 0.4){
             System.out.println("You found a " + treasure[1]);
             if(!obtained.contains(treasure[1])){
                 obtained.add(treasure[1]);
+                printMessage += "You hunted for treasure and found a " + treasure[1];
             }else{
                 System.out.println("Already obtained " + treasure[1]);
+                printMessage += "You hunted for treasure and found a " + treasure[1] + " but you already had a " + treasure[1];
             }
         }else if(num < 0.6){
             System.out.println("You found a " + treasure[2]);
             if(!obtained.contains(treasure[2])){
                 obtained.add(treasure[2]);
-            }else{
+                printMessage += "You hunted for treasure and found a " + treasure[2];
+            } else{
                 System.out.println("Already obtained " + treasure[2]);
+                printMessage += "You hunted for treasure and found a " + treasure[2] + " but you already had a " + treasure[2];
             }
         }else{
             System.out.println("You found a " + treasure[3]);
+            printMessage += "You hunted for treasure and found " + treasure[3];
         }
         searched = true;
     }
@@ -209,13 +216,16 @@ public class Town {
             double rand = Math.random();
             if (rand < .5) {
                 System.out.println("You dug but only found dirt");
+                printMessage += "You tried to dig for gold but only found dirt";
             } else if (rand > .5) {
                 int randGold = (int) (Math.random() * (20) + 1);
                 System.out.println("You dug up " + randGold + " gold!");
                 hunter.changeGold(randGold);
+                printMessage += "You tried to dig for gold and dug up " + randGold + " gold!";
             }
         } else {
             System.out.println("You can't dig for gold without a shovel!");
+            printMessage += "You tried to dig for gold but you didn't have a shovel. Silly you.";
         }
         dug = true;
     }
