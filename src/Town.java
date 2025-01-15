@@ -4,6 +4,7 @@
  * This code has been adapted from Ivan Turner's original program -- thank you Mr. Turner!
  */
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Town {
     // instance variables
@@ -109,13 +110,46 @@ public class Town {
      * The tougher the town, the easier it is to find a fight, and the harder it is to win one.
      */
     public void lookForTrouble() {
+        boolean check = false;
         double noTroubleChance;
         if (toughTown) {
             noTroubleChance = 0.66;
         } else {
             noTroubleChance = 0.33;
         }
-        if (Math.random() > noTroubleChance) {
+        if(TreasureHunter.getSecret()){
+            int goldDiff = (int) (Math.random() * 10) + 1;
+            for(String item : hunter.getKit()){
+                if(item == null){
+                    break;
+                }
+                else if (item.equals("sword")) {
+                    check = true;
+                    break;
+                }
+            }
+            if(check){
+                printMessage = "the brawler, seeing your sword, realizes he picked a losing fight and gives you his gold";
+                printMessage += Colors.YELLOW + "\nYou received " + goldDiff + " gold." + Colors.RESET;
+                hunter.changeGold(goldDiff);
+            }else{
+                printMessage = Colors.RED + "You want trouble, stranger!  You got it!\nOof! Umph! Ow!\n" + Colors.RESET;
+                if (Math.random() > noTroubleChance) {
+                    printMessage += "Okay, stranger! You proved yer mettle. Here, take my gold.";
+                    printMessage += Colors.YELLOW + "\nYou won the brawl and receive " + goldDiff + " gold." + Colors.RESET;
+                    hunter.changeGold(goldDiff);
+                } else {
+                    printMessage += "That'll teach you to go lookin' fer trouble in MY town! Now pay up!";
+                    printMessage += "\nYou lost the brawl and pay " + goldDiff + " gold.";
+                    hunter.changeGold(-goldDiff);
+                    if(hunter.getGold() < 0){
+                        printMessage += "\nYou lost all your coins\nGame Over!";
+                        // End Game Code Here
+                    }
+                }
+            }
+        }
+        else if (Math.random() > noTroubleChance) {
             printMessage = "You couldn't find any trouble";
         } else {
             printMessage = Colors.RED + "You want trouble, stranger!  You got it!\nOof! Umph! Ow!\n" + Colors.RESET;

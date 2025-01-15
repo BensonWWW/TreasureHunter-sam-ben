@@ -19,6 +19,7 @@ public class TreasureHunter {
     private boolean testMode;
     private static boolean easyMode;
     private boolean first;
+    public static boolean secret;
 
     /**
      * Constructs the Treasure Hunter game.
@@ -32,10 +33,15 @@ public class TreasureHunter {
         testMode = false;
         easyMode = false;
         first = true;
+        secret = false;
     }
 
     public static boolean getEasyMode(){
         return easyMode;
+    }
+
+    public static boolean getSecret(){
+        return secret;
     }
     /**
      * Starts the game; this is the only public method
@@ -66,6 +72,8 @@ public class TreasureHunter {
             testMode = true;
         } else if(option.equals("e")){
             easyMode = true;
+        } else if (option.equals("s")){
+            secret = true;
         }
     }
 
@@ -168,7 +176,7 @@ public class TreasureHunter {
                 enterTown();
             }
         } else if (choice.equals("l")) {
-            currentTown.huntForTreasure();
+            currentTown.lookForTrouble();
         } else if (choice.equals("x")) {
             System.out.println("Fare thee well, " + hunter.getHunterName() + "!");
         } else if (choice.equals("h")){
