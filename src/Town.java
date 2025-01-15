@@ -16,15 +16,16 @@ public class Town {
     private String[] treasure = {"crown", "trophy", "gem", "dust"};
     private static ArrayList<String> obtained = new ArrayList<>();
     private boolean searched = false;
+    private boolean dug = false;
 
 
     public Hunter getHunter(){
         return hunter;
     }
 
-    public boolean getSearched(){
-        return searched;
-    }
+    public boolean getSearched() { return searched; }
+
+    public boolean getDug() { return dug;}
 
     public static ArrayList<String> getObtained(){
         return obtained;
@@ -201,6 +202,22 @@ public class Town {
             System.out.println("You found a " + treasure[3]);
         }
         searched = true;
+    }
+
+    public void digForGold() {
+        if (hunter.hasItemInKit("shovel")) {
+            double rand = Math.random();
+            if (rand < .5) {
+                System.out.println("You dug but only found dirt");
+            } else if (rand > .5) {
+                int randGold = (int) (Math.random() * (20) + 1);
+                System.out.println("You dug up " + randGold + " gold!");
+                hunter.changeGold(randGold);
+            }
+        } else {
+            System.out.println("You can't dig for gold without a shovel!");
+        }
+        dug = true;
     }
 
     /**
