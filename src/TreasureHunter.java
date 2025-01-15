@@ -76,10 +76,11 @@ public class TreasureHunter {
             // and the town is "tougher"
             toughness = 0.75;
         } else if (testMode) {
-            hunter = new Hunter(hunter.getHunterName(), 106);
+            hunter = new Hunter(hunter.getHunterName(), 107);
             hunter.buyItem("Water", 1);
             hunter.buyItem("Rope", 1);
             hunter.buyItem("Machete", 1);
+            hunter.buyItem("Shovel", 1);
             hunter.buyItem("Boots", 1);
             hunter.buyItem("Horse", 1);
             hunter.buyItem("Boat", 1);
@@ -130,6 +131,7 @@ public class TreasureHunter {
             System.out.println("(M)ove on to a different town.");
             System.out.println("(L)ook for trouble!");
             System.out.println("(H)unt for treasure.");
+            System.out.println("(D)ig for gold.");
             System.out.println("Give up the hunt and e(X)it.");
             System.out.println();
             System.out.print("What's your next move? ");
@@ -153,14 +155,20 @@ public class TreasureHunter {
                 System.out.println(currentTown.getLatestNews());
                 enterTown();
             }
+        } else if (choice.equals("d")) {
+            if(currentTown.getDug()) {
+                System.out.println("You already dug for gold in this town.");
+            } else {
+                currentTown.digForGold();
+            }
         } else if (choice.equals("l")) {
             currentTown.huntForTreasure();
         } else if (choice.equals("x")) {
             System.out.println("Fare thee well, " + hunter.getHunterName() + "!");
         } else if (choice.equals("h")){
-            if(currentTown.getSearched()){
+            if(currentTown.getSearched()) {
                 System.out.println("You already searched that town! ");
-            }else{
+            } else{
                 currentTown.huntForTreasure();
             }
         }else {
