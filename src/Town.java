@@ -60,6 +60,10 @@ public class Town {
         return printMessage;
     }
 
+    public void setPrintMessage(){
+        printMessage = "";
+    }
+
     /**
      * Assigns an object to the Hunter in town.
      *

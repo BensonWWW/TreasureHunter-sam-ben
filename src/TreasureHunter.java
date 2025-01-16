@@ -140,6 +140,7 @@ public class TreasureHunter {
                 break;
             }
             System.out.println(currentTown.getLatestNews());
+            currentTown.setPrintMessage();
             if(currentTown.getHunter().getGold() < 0){
                 break;
             }
